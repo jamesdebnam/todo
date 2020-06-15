@@ -1,6 +1,6 @@
 import { combineReducers } from "redux";
 
-todo = () => {
+const todo = () => {
   return "sdfsd";
 };
 
