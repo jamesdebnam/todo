@@ -1,9 +1,6 @@
 import { combineReducers } from "redux";
-
-const todo = () => {
-  return "sdfsd";
-};
+import todosReducer from "./todosReducer";
 
 export default combineReducers({
-  todo: todo,
+  todos: todosReducer,
 });
