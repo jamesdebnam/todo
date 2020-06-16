@@ -5,8 +5,6 @@ import "./ToDos.css";
 import { toggleTodo, toggleStar } from "../../actions";
 import ToDoInput from "../ToDoInput/ToDoInput";
 
-import star from "../../images/star.svg";
-
 class ToDos extends Component {
   renderTodos({ todos }) {
     todos.map((item) => {
