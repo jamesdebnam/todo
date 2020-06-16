@@ -1,4 +1,9 @@
-import { ADD_TODO, TOGGLE_TODO, TOGGLE_STAR } from "../actions/ACTION_TYPES";
+import {
+  ADD_TODO,
+  TOGGLE_TODO,
+  TOGGLE_STAR,
+  REARRANGE_TODOS,
+} from "../actions/ACTION_TYPES";
 
 export default function todosReducer(state = [], action) {
   switch (action.type) {
@@ -13,6 +18,13 @@ export default function todosReducer(state = [], action) {
           key: state.length,
         },
       ];
+
+    case REARRANGE_TODOS:
+      let placeholder = state[action.start];
+      state.splice(action.start, 1);
+      state.splice(action.end, 0, placeholder);
+
+      return [...state];
 
     case TOGGLE_TODO:
       // The toggled todo is grabbed and the ticked value is updated

@@ -3,6 +3,7 @@ import {
   ADD_TODO,
   TOGGLE_TODO,
   TOGGLE_STAR,
+  REARRANGE_TODOS,
 } from "../actions/ACTION_TYPES";
 
 export default function activeTodosReducer(state = [], action) {
@@ -15,6 +16,13 @@ export default function activeTodosReducer(state = [], action) {
         // filters by the passed in parameter
         (item) => item[filterKey] === action.term[filterKey]
       );
+
+    case REARRANGE_TODOS:
+      let placeholder = state[action.start];
+      state.splice(action.start, 1);
+      state.splice(action.end, 0, placeholder);
+
+      return [...state];
 
     case ADD_TODO:
       // A new todo with all of its needed information is added to the current state

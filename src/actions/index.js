@@ -3,6 +3,7 @@ import {
   TOGGLE_TODO,
   TOGGLE_STAR,
   FILTER_TODOS,
+  REARRANGE_TODOS,
 } from "./ACTION_TYPES";
 
 export const addTodo = (todo) => {
@@ -34,4 +35,12 @@ export const filterTodos = (term) => (dispatch, getState) => {
     payload: todos,
     term: term,
   });
+};
+
+export const rearrangeTodos = (input) => {
+  return {
+    type: REARRANGE_TODOS,
+    start: input.start,
+    end: input.end,
+  };
 };
