@@ -4,9 +4,9 @@ import "./Sidebar.css";
 export default class Sidebar extends Component {
   render() {
     return (
-      <div>
+      <div className="sidebar">
         <ul className="sidebar--filter">
-          <li>
+          <li className="sidebar--filter--item all-tasks">
             <p>All Tasks</p>
             <svg
               xmlns="http://www.w3.org/2000/svg"
@@ -18,13 +18,13 @@ export default class Sidebar extends Component {
               stroke-width="2"
               stroke-linecap="round"
               stroke-linejoin="round"
-              class="feather feather-home"
+              class="icon icon--all-tasks"
             >
               <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path>
               <polyline points="9 22 9 12 15 12 15 22"></polyline>
             </svg>
           </li>
-          <li>
+          <li className="sidebar--filter--item important">
             <p>Important</p>
             <svg
               xmlns="http://www.w3.org/2000/svg"
@@ -36,12 +36,12 @@ export default class Sidebar extends Component {
               stroke-width="2"
               stroke-linecap="round"
               stroke-linejoin="round"
-              class="feather feather-star"
+              class="icon icon--important"
             >
               <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon>
             </svg>
           </li>
-          <li>
+          <li className="sidebar--filter--item completed">
             <p>Completed</p>
             <svg
               xmlns="http://www.w3.org/2000/svg"
@@ -53,7 +53,7 @@ export default class Sidebar extends Component {
               stroke-width="2"
               stroke-linecap="round"
               stroke-linejoin="round"
-              class="feather feather-archive"
+              class="icon icon--completed"
             >
               <polyline points="21 8 21 21 3 21 3 8"></polyline>
               <rect x="1" y="3" width="22" height="5"></rect>

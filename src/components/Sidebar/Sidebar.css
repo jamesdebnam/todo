@@ -1,3 +1,43 @@
 ul {
   list-style: none;
+  padding: 0;
+}
+
+.sidebar--container {
+  box-shadow: inset -8px 0px 40px -26px rgba(0, 0, 0, 0.63);
+}
+
+.sidebar--filter--item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin: 2vw;
+  transition: all 0.3s ease;
+}
+.icon {
+  transition: all 0.3s ease;
+}
+
+.all-tasks:hover > .icon--all-tasks,
+.all-tasks:hover {
+  color: #218f63;
+  stroke: #218f63;
+  transition: all 0.3s ease;
+  cursor: pointer;
+}
+
+.important:hover > .icon--important,
+.important:hover {
+  color: #db6627;
+  stroke: #db6627;
+  transition: all 0.3s ease;
+  cursor: pointer;
+}
+
+.completed:hover > .icon--completed,
+.completed:hover {
+  color: #727f94;
+  stroke: #727f94;
+  transition: all 0.3s ease;
+  cursor: pointer;
 }
