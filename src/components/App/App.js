@@ -1,6 +1,6 @@
 import React from "react";
 import "./App.css";
-import ToDos from "../ToDos/ToDos";
+import Todos from "../Todos/Todos";
 import Sidebar from "../Sidebar/Sidebar";
 
 function App() {
@@ -10,7 +10,7 @@ function App() {
         <Sidebar />
       </div>
 
-      <ToDos />
+      <Todos />
     </div>
   );
 }

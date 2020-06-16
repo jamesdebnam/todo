@@ -1,7 +1,21 @@
-import { ADD_TODO, TOGGLE_TODO, TOGGLE_STAR } from "../actions/ACTION_TYPES";
+import {
+  FILTER_TODOS,
+  ADD_TODO,
+  TOGGLE_TODO,
+  TOGGLE_STAR,
+} from "../actions/ACTION_TYPES";
 
-export default function todosReducer(state = [], action) {
+export default function activeTodosReducer(state = [], action) {
   switch (action.type) {
+    case FILTER_TODOS:
+      // grabs the key to sort by from the action object
+      let filterKey = Object.keys(action.term)[0];
+      // the entire todo list state is passed in from the todos store
+      return action.payload.filter(
+        // filters by the passed in parameter
+        (item) => item[filterKey] === action.term[filterKey]
+      );
+
     case ADD_TODO:
       // A new todo with all of its needed information is added to the current state
       return [

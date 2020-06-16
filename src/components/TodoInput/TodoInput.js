@@ -1,10 +1,10 @@
 import React from "react";
 import { connect } from "react-redux";
 
-import "./ToDoInput.css";
+import "./TodoInput.css";
 import { addTodo } from "../../actions";
 
-class ToDoInput extends React.Component {
+class TodoInput extends React.Component {
   // Component state is used here to make the todo input controlled - redux could be used but it seems
   // a bit overkill
 
@@ -39,7 +39,7 @@ class ToDoInput extends React.Component {
 }
 
 const mapStateToProps = (state) => {
-  return { todos: state.todos };
+  return { todos: state.activeTodos };
 };
 
-export default connect(mapStateToProps, { addTodo })(ToDoInput);
+export default connect(mapStateToProps, { addTodo })(TodoInput);

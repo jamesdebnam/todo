@@ -1,11 +1,11 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
 
-import "./ToDos.css";
+import "./Todos.css";
 import { toggleTodo, toggleStar } from "../../actions";
-import ToDoInput from "../ToDoInput/ToDoInput";
+import TodoInput from "../TodoInput/TodoInput";
 
-class ToDos extends Component {
+export class Todos extends Component {
   renderTodos({ todos }) {
     todos.map((item) => {
       return <div className="todo--item">{item.item}</div>;
@@ -80,7 +80,7 @@ class ToDos extends Component {
               </li>
             );
           })}
-          <ToDoInput />
+          <TodoInput />
         </ul>
       </div>
     );
@@ -88,7 +88,7 @@ class ToDos extends Component {
 }
 
 const mapStateToProps = (state) => {
-  return { todos: state.todos };
+  return { todos: state.activeTodos };
 };
 
-export default connect(mapStateToProps, { toggleTodo, toggleStar })(ToDos);
+export default connect(mapStateToProps, { toggleTodo, toggleStar })(Todos);
