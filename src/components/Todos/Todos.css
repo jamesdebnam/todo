@@ -1,3 +1,10 @@
 .todo--list {
   list-style: none;
 }
+.todo--droparea {
+  width: 80%;
+  margin: 2% auto;
+  padding: 1%;
+  transition: all ease 0.5s;
+  border-radius: 0.5vw;
+}

@@ -1,15 +1,18 @@
 .todo--item {
   background-color: whitesmoke;
   border: none;
-  width: 80%;
+  width: 100%;
   margin: 1% auto;
+
   height: 2rem;
   box-sizing: border-box;
   display: grid;
   grid-template-columns: 93% 7%;
   border-radius: 0.3vw;
   grid-template-areas: "left star";
+  transition: all ease 0.2s;
 }
+
 .todo--left-items {
   display: flex;
   align-items: center;

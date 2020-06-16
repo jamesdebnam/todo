@@ -12,9 +12,18 @@ export class Todos extends Component {
       <div>
         <ul className="todo--list">
           <Droppable droppableId="todos">
-            {(provided) => {
+            {(provided, snapshot) => {
               return (
-                <div ref={provided.innerRef} {...provided.droppableProps}>
+                <div
+                  ref={provided.innerRef}
+                  {...provided.droppableProps}
+                  style={{
+                    backgroundColor: snapshot.isDraggingOver
+                      ? "rgba(121, 169, 169, 0.25)"
+                      : null,
+                  }}
+                  className="todo--droparea"
+                >
                   <TodoItem />
                   {provided.placeholder}
                 </div>
