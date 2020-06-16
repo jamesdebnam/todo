@@ -4,6 +4,7 @@ import {
   TOGGLE_TODO,
   TOGGLE_STAR,
   REARRANGE_TODOS,
+  TOGGLE_COMPLETED,
 } from "../actions/ACTION_TYPES";
 
 export default function activeTodosReducer(state = [], action) {
@@ -59,6 +60,10 @@ export default function activeTodosReducer(state = [], action) {
         ...state.slice(action.payload + 1),
       ];
 
+    case TOGGLE_COMPLETED:
+      return action.payload
+        ? [...state]
+        : [...state.filter((item) => item.ticked === false)];
     default:
       return state;
   }

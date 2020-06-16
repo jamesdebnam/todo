@@ -4,6 +4,7 @@ import {
   TOGGLE_STAR,
   FILTER_TODOS,
   REARRANGE_TODOS,
+  TOGGLE_COMPLETED,
 } from "./ACTION_TYPES";
 
 export const addTodo = (todo) => {
@@ -43,4 +44,15 @@ export const rearrangeTodos = (input) => {
     start: input.start,
     end: input.end,
   };
+};
+
+export const toggleCompleted = (isToggled) => (dispatch, getState) => {
+  // This doesn't work! when you send it off, it will return all the todos, regardless of whether you
+  // have filters or groups working! FIX ME!@!
+  const todos = getState().todos;
+  dispatch({
+    type: TOGGLE_COMPLETED,
+    isToggled,
+    payload: todos,
+  });
 };
