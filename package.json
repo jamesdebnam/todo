@@ -1,7 +1,7 @@
 {
   "name": "todo-clone",
   "version": "0.1.0",
-  "homepage": "http://jamesdebnam.github.io/todo-list",
+  "homepage": "http://jamesdebnam.github.io/todo",
   "private": true,
   "dependencies": {
     "@testing-library/jest-dom": "^4.2.4",

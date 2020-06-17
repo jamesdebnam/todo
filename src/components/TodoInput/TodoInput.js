@@ -24,13 +24,13 @@ class TodoInput extends React.Component {
   };
 
   handleClick = () => {
-    this.props.toggleCompleted(isToggled);
     // switches the isToggled value between true and false
     isToggled = !isToggled;
+    this.props.toggleCompleted(isToggled);
   };
   render() {
     return (
-      <>
+      <div>
         <li className="todo--form">
           <form className="todo--frm" onSubmit={this.handleSubmit}>
             <input
@@ -43,9 +43,9 @@ class TodoInput extends React.Component {
           </form>
         </li>
         <button className="button--hide-completed" onClick={this.handleClick}>
-          Hide Completed
+          {isToggled ? "Show Completed" : "Hide Completed"}
         </button>
-      </>
+      </div>
     );
   }
 }

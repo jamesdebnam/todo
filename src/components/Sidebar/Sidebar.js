@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import "./Sidebar.css";
 import { connect } from "react-redux";
-import { filterTodos } from "../../actions";
+import { filterTodos, toggleCompleted } from "../../actions";
 
 export class Sidebar extends Component {
   render() {
@@ -10,7 +10,10 @@ export class Sidebar extends Component {
         <ul className="sidebar--filter">
           <li
             className="sidebar--filter--item all-tasks"
-            onClick={() => this.props.filterTodos({})}
+            onClick={() => {
+              this.props.filterTodos({});
+              this.props.toggleCompleted(this.props.isToggled);
+            }}
           >
             <p>All Tasks</p>
             <svg
@@ -31,7 +34,10 @@ export class Sidebar extends Component {
           </li>
           <li
             className="sidebar--filter--item important"
-            onClick={() => this.props.filterTodos({ starred: true })}
+            onClick={() => {
+              this.props.filterTodos({ starred: true });
+              this.props.toggleCompleted(this.props.isToggled);
+            }}
           >
             <p>Important</p>
             <svg
@@ -51,7 +57,9 @@ export class Sidebar extends Component {
           </li>
           <li
             className="sidebar--filter--item completed"
-            onClick={() => this.props.filterTodos({ ticked: true })}
+            onClick={() => {
+              this.props.filterTodos({ ticked: true });
+            }}
           >
             <p>Completed</p>
             <svg
@@ -82,7 +90,10 @@ export class Sidebar extends Component {
 const mapStateToProps = (state) => {
   return {
     todos: state.todos,
+    isToggled: state.isToggled,
   };
 };
 
-export default connect(mapStateToProps, { filterTodos })(Sidebar);
+export default connect(mapStateToProps, { filterTodos, toggleCompleted })(
+  Sidebar
+);

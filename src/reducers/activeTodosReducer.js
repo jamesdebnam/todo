@@ -61,9 +61,11 @@ export default function activeTodosReducer(state = [], action) {
       ];
 
     case TOGGLE_COMPLETED:
-      return action.payload
-        ? [...state]
-        : [...state.filter((item) => item.ticked === false)];
+      return action.isToggled
+        ? // If isToggled is true, then the ticked items are filtered out of the shown todos
+          [...state.filter((item) => item.ticked === false)]
+        : // When isToggled is false, the payload is taken from the completedTodos store and appended to the list
+          [...state, ...action.payload];
     default:
       return state;
   }

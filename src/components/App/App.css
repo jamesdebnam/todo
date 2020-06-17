@@ -5,6 +5,17 @@
   background-size: cover;
   display: grid;
   grid-template-columns: 25% 75%;
+  grid-template-areas: "sidebar | todo";
+  overflow-y: hidden;
+  font-family: "Roboto", sans-serif;
+}
+
+Sidebar {
+  grid-area: sidebar;
+}
+
+Todos {
+  grid-area: todo;
 }
 
 .sidebar--container {

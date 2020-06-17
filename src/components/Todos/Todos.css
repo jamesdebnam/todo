@@ -1,5 +1,12 @@
 .todo--list {
   list-style: none;
+  display: grid;
+  margin: 0;
+  height: 100%;
+  grid-template-rows: 85vh 15vh;
+  grid-template-areas:
+    "todo--items"
+    "todo--input";
 }
 .todo--droparea {
   width: 80%;
@@ -7,4 +14,17 @@
   padding: 1%;
   transition: all ease 0.5s;
   border-radius: 0.5vw;
+  overflow-y: hidden;
+}
+
+.todos {
+  overflow-y: auto;
+}
+
+TodoInput {
+  grid-area: todo--input;
+}
+
+.todos {
+  grid-area: todo--items;
 }

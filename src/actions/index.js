@@ -47,9 +47,9 @@ export const rearrangeTodos = (input) => {
 };
 
 export const toggleCompleted = (isToggled) => (dispatch, getState) => {
-  // This doesn't work! when you send it off, it will return all the todos, regardless of whether you
-  // have filters or groups working! FIX ME!@!
-  const todos = getState().todos;
+  // Depending on whether isToggled is true, either the activeTodos or completedTodos
+  // is passed to the reducers
+  const todos = isToggled ? getState().activeTodos : getState().completedTodos;
   dispatch({
     type: TOGGLE_COMPLETED,
     isToggled,
