@@ -23,6 +23,8 @@ export default function todosReducer(state = [], action) {
       ];
 
     case REARRANGE_TODOS:
+      // As the index shown on the page doesn't encompass all the todos in the store, a bit of logic is required
+      // to reorder them.
       let difference = action.start - action.end;
       let startingPoint = state.indexOf(
         state.filter((item) => item.key === action.key)[0]

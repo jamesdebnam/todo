@@ -6,7 +6,10 @@ import CustomGroups from "../CustomGroups/CustomGroups";
 export class Sidebar extends Component {
   handleClick = (filter) => {
     this.props.selectGroup("");
+    // filtertodos acts as a way to grab all the correct todos from the todos store and
+    // bring it into the active todos store which is displayed on the page
     this.props.filterTodos(filter);
+    // Toggle completed is ran every time a new section is clicked to ensure the correct todos are hidden
     this.props.toggleCompleted(this.props.isToggled);
   };
   render() {

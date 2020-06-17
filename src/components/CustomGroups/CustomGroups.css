@@ -27,7 +27,6 @@
 
 .custom-groups--item:hover > .custom-groups--delete,
 .custom-groups--item:hover {
-  opacity: 100%;
   transition: all 0.3s ease;
   color: rgb(7, 63, 60);
 }
@@ -43,7 +42,7 @@
 }
 
 .custom-groups--delete {
-  opacity: 10%;
+  color: rgba(0, 0, 0, 0.226);
   transition: all 0.3s ease;
 }
 

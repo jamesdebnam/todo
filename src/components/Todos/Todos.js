@@ -16,6 +16,7 @@ export class Todos extends Component {
           </h3>
           <Droppable droppableId="todos">
             {(provided, snapshot) => {
+              // This function is required for the react-beautiful-dnd library to work
               return (
                 <div
                   ref={provided.innerRef}

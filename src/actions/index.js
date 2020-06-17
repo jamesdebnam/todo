@@ -35,6 +35,7 @@ export const toggleStar = (key) => {
 };
 
 export const filterTodos = (term) => (dispatch, getState) => {
+  // if no term is passed as a filter, then the current custom group is used
   const todos = getState().todos;
   if (!term) term = getState().groups.filter;
   dispatch({
@@ -54,7 +55,7 @@ export const rearrangeTodos = (input) => {
 };
 
 export const toggleCompleted = (isToggled) => (dispatch, getState) => {
-  // Depending on whether isToggled is true, either the activeTodos or completedTodos
+  // Depending on whether isToggled is passed as an argument, either the activeTodos or completedTodos
   // is passed to the reducers
   const todos = isToggled ? getState().activeTodos : getState().completedTodos;
   dispatch({
