@@ -5,3 +5,5 @@ export const FILTER_TODOS = "FILTER_TODOS";
 export const REARRANGE_TODOS = "REARRANGE_TODOS";
 export const TOGGLE_COMPLETED = "TOGGLE_COMPLETED";
 export const ADD_GROUP = "ADD_GROUP";
+export const DELETE_GROUP = "DELETE_GROUP";
+export const SELECT_GROUP = "SELECT_GROUP";

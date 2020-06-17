@@ -1,7 +1,7 @@
 .custom-groups--input {
   border: none;
   background-color: inherit;
-  margin: 0 3vw;
+  margin: 0.5vw 3vw;
   font-size: 1.3em;
   width: 80%;
   border-radius: 0.2vw;
@@ -19,6 +19,7 @@
   margin: 1vw 3vw;
   font-size: 1.5em;
   display: flex;
+  height: 2em;
   align-items: center;
   justify-content: space-between;
   transition: all 0.3s ease;
@@ -28,13 +29,17 @@
 .custom-groups--item:hover {
   opacity: 100%;
   transition: all 0.3s ease;
-  cursor: pointer;
   color: rgb(7, 63, 60);
 }
 
 .custom-groups--delete:hover {
+  cursor: pointer;
   stroke: maroon;
   transition: all 0.3s ease;
+}
+
+.custom-groups--item-name:hover {
+  cursor: pointer;
 }
 
 .custom-groups--delete {

@@ -2,7 +2,7 @@ import React from "react";
 import { connect } from "react-redux";
 
 import "./TodoInput.css";
-import { addTodo, toggleCompleted } from "../../actions";
+import { addTodo, toggleCompleted, filterTodos } from "../../actions";
 
 let isToggled = false;
 class TodoInput extends React.Component {
@@ -20,6 +20,7 @@ class TodoInput extends React.Component {
 
     // The addToDo action creator is called with the input value passed in as the payload
     this.props.addTodo(this.state.inputVal);
+    this.props.filterTodos();
     this.setState({ inputVal: "" });
   };
 
@@ -54,6 +55,8 @@ const mapStateToProps = (state) => {
   return { todos: state.activeTodos };
 };
 
-export default connect(mapStateToProps, { addTodo, toggleCompleted })(
-  TodoInput
-);
+export default connect(mapStateToProps, {
+  addTodo,
+  toggleCompleted,
+  filterTodos,
+})(TodoInput);

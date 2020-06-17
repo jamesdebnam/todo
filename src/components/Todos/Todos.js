@@ -11,6 +11,9 @@ export class Todos extends Component {
     return (
       <div>
         <ul className="todo--list">
+          <h3 className="group-name">
+            {this.props.group ? this.props.group : "To-dos"}
+          </h3>
           <Droppable droppableId="todos">
             {(provided, snapshot) => {
               return (
@@ -39,7 +42,7 @@ export class Todos extends Component {
 }
 
 const mapStateToProps = (state) => {
-  return { todos: state.activeTodos };
+  return { todos: state.activeTodos, group: state.groups.group };
 };
 
 export default connect(mapStateToProps, { toggleTodo, toggleStar })(Todos);

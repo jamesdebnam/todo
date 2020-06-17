@@ -2,7 +2,7 @@ import React from "react";
 import "./TodoItem.css";
 import { connect } from "react-redux";
 import { Draggable } from "react-beautiful-dnd";
-import { toggleTodo, toggleStar } from "../../actions";
+import { toggleTodo, toggleStar, filterTodos } from "../../actions";
 
 class TodoItem extends React.Component {
   renderTodos({ todos }) {
@@ -47,7 +47,10 @@ class TodoItem extends React.Component {
                   strokeLinejoin="round"
                   className="todo--icon__inactive"
                   alt="checkbox"
-                  onClick={() => this.props.toggleTodo(index)}
+                  onClick={() => {
+                    this.props.toggleTodo(item.key);
+                    this.props.filterTodos();
+                  }}
                 >
                   {this.renderCircle(item.ticked)}
                 </svg>
@@ -74,7 +77,10 @@ class TodoItem extends React.Component {
                   item.starred ? "star--icon star--icon__active" : "star--icon"
                 }
                 alt="star"
-                onClick={() => this.props.toggleStar(index)}
+                onClick={() => {
+                  this.props.toggleStar(item.key);
+                  this.props.filterTodos();
+                }}
               >
                 <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon>
               </svg>
@@ -90,4 +96,8 @@ const mapStateToProps = (state) => {
   return { todos: state.activeTodos };
 };
 
-export default connect(mapStateToProps, { toggleTodo, toggleStar })(TodoItem);
+export default connect(mapStateToProps, {
+  toggleTodo,
+  toggleStar,
+  filterTodos,
+})(TodoItem);

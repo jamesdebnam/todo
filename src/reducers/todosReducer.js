@@ -3,9 +3,11 @@ import {
   TOGGLE_TODO,
   TOGGLE_STAR,
   REARRANGE_TODOS,
+  DELETE_GROUP,
 } from "../actions/ACTION_TYPES";
 
 export default function todosReducer(state = [], action) {
+  let itemPosition;
   switch (action.type) {
     case ADD_TODO:
       // A new todo with all of its needed information is added to the current state
@@ -16,38 +18,53 @@ export default function todosReducer(state = [], action) {
           ticked: false,
           starred: false,
           key: state.length,
+          group: action.group,
         },
       ];
 
     case REARRANGE_TODOS:
-      let placeholder = state[action.start];
-      state.splice(action.start, 1);
-      state.splice(action.end, 0, placeholder);
+      let difference = action.start - action.end;
+      let startingPoint = state.indexOf(
+        state.filter((item) => item.key === action.key)[0]
+      );
+
+      let placeholder = state[startingPoint];
+      console.log(startingPoint, placeholder);
+      state.splice(startingPoint, 1);
+      state.splice(startingPoint - difference, 0, placeholder);
 
       return [...state];
 
     case TOGGLE_TODO:
       // The toggled todo is grabbed and the ticked value is updated
-
+      itemPosition = state.indexOf(
+        state.filter((item) => item.key === action.key)[0]
+      );
       return [
-        ...state.slice(0, action.payload),
+        ...state.slice(0, itemPosition),
         {
-          ...state[action.payload],
-          ticked: !state[action.payload].ticked,
+          ...state[itemPosition],
+          ticked: !state[itemPosition].ticked,
         },
-        ...state.slice(action.payload + 1),
+        ...state.slice(itemPosition + 1),
       ];
 
     case TOGGLE_STAR:
       // Same as above, except star value is changed
+      itemPosition = state.indexOf(
+        state.filter((item) => item.key === action.key)[0]
+      );
       return [
-        ...state.slice(0, action.payload),
+        ...state.slice(0, itemPosition),
         {
-          ...state[action.payload],
-          starred: !state[action.payload].starred,
+          ...state[itemPosition],
+          starred: !state[itemPosition].starred,
         },
-        ...state.slice(action.payload + 1),
+        ...state.slice(itemPosition + 1),
       ];
+
+    case DELETE_GROUP:
+      return state.filter((item) => item.group !== action.name);
 
     default:
       return state;

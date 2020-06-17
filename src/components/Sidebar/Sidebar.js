@@ -1,19 +1,21 @@
 import React, { Component } from "react";
 import "./Sidebar.css";
 import { connect } from "react-redux";
-import { filterTodos, toggleCompleted } from "../../actions";
+import { filterTodos, toggleCompleted, selectGroup } from "../../actions";
 import CustomGroups from "../CustomGroups/CustomGroups";
 export class Sidebar extends Component {
+  handleClick = (filter) => {
+    this.props.selectGroup("");
+    this.props.filterTodos(filter);
+    this.props.toggleCompleted(this.props.isToggled);
+  };
   render() {
     return (
       <div className="sidebar">
         <ul className="sidebar--filter">
           <li
             className="sidebar--filter--item all-tasks"
-            onClick={() => {
-              this.props.filterTodos({});
-              this.props.toggleCompleted(this.props.isToggled);
-            }}
+            onClick={() => this.handleClick({})}
           >
             <h3>All Tasks</h3>
             <svg
@@ -34,10 +36,7 @@ export class Sidebar extends Component {
           </li>
           <li
             className="sidebar--filter--item important"
-            onClick={() => {
-              this.props.filterTodos({ starred: true });
-              this.props.toggleCompleted(this.props.isToggled);
-            }}
+            onClick={() => this.handleClick({ starred: true })}
           >
             <h3>Important</h3>
             <svg
@@ -57,10 +56,7 @@ export class Sidebar extends Component {
           </li>
           <li
             className="sidebar--filter--item completed"
-            onClick={() => {
-              this.props.filterTodos({ ticked: true });
-              this.props.toggleCompleted(this.props.isToggled);
-            }}
+            onClick={() => this.handleClick({ ticked: true })}
           >
             <h3>Completed</h3>
             <svg
@@ -96,6 +92,8 @@ const mapStateToProps = (state) => {
   };
 };
 
-export default connect(mapStateToProps, { filterTodos, toggleCompleted })(
-  Sidebar
-);
+export default connect(mapStateToProps, {
+  filterTodos,
+  toggleCompleted,
+  selectGroup,
+})(Sidebar);

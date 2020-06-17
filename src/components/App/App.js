@@ -5,14 +5,17 @@ import { connect } from "react-redux";
 import "./App.css";
 import Todos from "../Todos/Todos";
 import Sidebar from "../Sidebar/Sidebar";
-import { rearrangeTodos } from "../../actions";
+import { rearrangeTodos, filterTodos } from "../../actions";
 class App extends React.Component {
-  onDragEnd = ({ destination, source }) => {
+  onDragEnd = ({ source, destination, draggableId }) => {
+    // console.log(result);
     if (destination) {
       this.props.rearrangeTodos({
         start: source.index,
         end: destination.index,
+        key: draggableId,
       });
+      this.props.filterTodos();
     }
   };
   render() {
@@ -32,4 +35,4 @@ class App extends React.Component {
 const mapStateToProps = (state) => {
   return {};
 };
-export default connect(mapStateToProps, { rearrangeTodos })(App);
+export default connect(mapStateToProps, { rearrangeTodos, filterTodos })(App);

@@ -7,14 +7,24 @@
   grid-template-areas:
     "todo--items"
     "todo--input";
+  position: relative;
 }
 .todo--droparea {
   width: 80%;
   margin: 2% auto;
+  margin-top: 7%;
   padding: 1%;
   transition: all ease 0.5s;
   border-radius: 0.5vw;
   overflow-y: auto;
+}
+
+.group-name {
+  position: absolute;
+  left: 10%;
+  top: 0.3vw;
+  font-size: 2vw;
+  font-weight: 600;
 }
 
 .todos {
