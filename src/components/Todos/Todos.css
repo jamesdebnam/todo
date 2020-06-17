@@ -3,7 +3,7 @@
   display: grid;
   margin: 0;
   height: 100%;
-  grid-template-rows: 85vh 15vh;
+  grid-template-rows: 82vh 18vh;
   grid-template-areas:
     "todo--items"
     "todo--input";
@@ -14,7 +14,7 @@
   padding: 1%;
   transition: all ease 0.5s;
   border-radius: 0.5vw;
-  overflow-y: hidden;
+  overflow-y: auto;
 }
 
 .todos {

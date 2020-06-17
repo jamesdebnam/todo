@@ -1,0 +1,47 @@
+.custom-groups--input {
+  border: none;
+  background-color: inherit;
+  margin: 0 3vw;
+  font-size: 1.3em;
+  width: 80%;
+  border-radius: 0.2vw;
+  transition: all 0.3s ease;
+}
+
+.custom-groups--input:focus {
+  background-color: rgba(179, 207, 233, 0.589);
+  box-shadow: 0px 0px 20px 0px rgba(60, 85, 109, 0.289);
+  color: black;
+  transition: all 0.3s ease;
+}
+
+.custom-groups--item {
+  margin: 1vw 3vw;
+  font-size: 1.5em;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  transition: all 0.3s ease;
+}
+
+.custom-groups--item:hover > .custom-groups--delete,
+.custom-groups--item:hover {
+  opacity: 100%;
+  transition: all 0.3s ease;
+  cursor: pointer;
+  color: rgb(7, 63, 60);
+}
+
+.custom-groups--delete:hover {
+  stroke: maroon;
+  transition: all 0.3s ease;
+}
+
+.custom-groups--delete {
+  opacity: 10%;
+  transition: all 0.3s ease;
+}
+
+.custom-groups--item-list {
+  text-align: start;
+}

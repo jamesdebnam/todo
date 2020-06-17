@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import "./Sidebar.css";
 import { connect } from "react-redux";
 import { filterTodos, toggleCompleted } from "../../actions";
-
+import CustomGroups from "../CustomGroups/CustomGroups";
 export class Sidebar extends Component {
   render() {
     return (
@@ -15,7 +15,7 @@ export class Sidebar extends Component {
               this.props.toggleCompleted(this.props.isToggled);
             }}
           >
-            <p>All Tasks</p>
+            <h3>All Tasks</h3>
             <svg
               xmlns="http://www.w3.org/2000/svg"
               width="24"
@@ -39,7 +39,7 @@ export class Sidebar extends Component {
               this.props.toggleCompleted(this.props.isToggled);
             }}
           >
-            <p>Important</p>
+            <h3>Important</h3>
             <svg
               xmlns="http://www.w3.org/2000/svg"
               width="24"
@@ -59,9 +59,10 @@ export class Sidebar extends Component {
             className="sidebar--filter--item completed"
             onClick={() => {
               this.props.filterTodos({ ticked: true });
+              this.props.toggleCompleted(this.props.isToggled);
             }}
           >
-            <p>Completed</p>
+            <h3>Completed</h3>
             <svg
               xmlns="http://www.w3.org/2000/svg"
               width="24"
@@ -82,6 +83,7 @@ export class Sidebar extends Component {
         </ul>
         <br />
         <ul className="sidebar--groups"></ul>
+        <CustomGroups />
       </div>
     );
   }

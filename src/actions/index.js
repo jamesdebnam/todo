@@ -5,6 +5,7 @@ import {
   FILTER_TODOS,
   REARRANGE_TODOS,
   TOGGLE_COMPLETED,
+  ADD_GROUP,
 } from "./ACTION_TYPES";
 
 export const addTodo = (todo) => {
@@ -55,4 +56,11 @@ export const toggleCompleted = (isToggled) => (dispatch, getState) => {
     isToggled,
     payload: todos,
   });
+};
+
+export const addGroup = (group) => {
+  return {
+    type: ADD_GROUP,
+    payload: group,
+  };
 };
